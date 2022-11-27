@@ -1,16 +1,15 @@
 {
-  "name": "vkproject",
+  "name": "2022-autumn-d.kaymanov",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "KaimanGeek",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "morgan": "^1.10.0"
+    "express": "4.18.2",
+    "morgan": "1.10.0"
   }
 }
