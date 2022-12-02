@@ -1,0 +1,14 @@
+.header {
+    height: 76px;
+    border-bottom: #DB3727 solid 2px;
+}
+
+.header-text {
+    color: #DB3727;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 900;
+}

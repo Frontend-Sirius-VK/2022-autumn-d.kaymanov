@@ -1,0 +1,17 @@
+.categories {
+    display: flex;
+    height: 44px;
+    background-color: #DB3727;
+}
+
+.сategory {
+    padding-top: 8px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: white;
+    weight: 97px;
+    height: 44px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

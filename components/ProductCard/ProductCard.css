@@ -1,0 +1,49 @@
+.productCard {
+    display: flex;
+    margin: 10px;
+    border-top: darkgray solid 2px;
+}
+
+.product-card-photo {
+    height: 154px;
+    weight: 164px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.product-card-spec {
+    display: flex;
+}
+
+.product-card-text {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.product-card-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-card-spec {
+    color: darkgray;
+    padding-top: 10px;
+}
+
+.product-card-price {
+    color: black;
+    padding-top: 10px;
+    margin-left: 100px;
+}
+
+.product-card-year {
+    color: black;
+    padding-top: 10px;
+    margin-left: 100px;
+}
+
+.product-card-mileage {
+    color: black;
+    padding-top: 10px;
+    margin-left: 100px;
+}
