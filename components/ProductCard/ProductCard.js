@@ -1,9 +1,7 @@
-import EventBus from "../../utils/eventBus.js";
 export class ProductCard {
     constructor(parent) {
         this.parent = parent;
     }
-
 
     render(alt, src, name, spec, price, year, mileage) {
         const container = document.createElement('div');
@@ -30,21 +28,21 @@ export class ProductCard {
         specifications.classList.add('product-card-spec')
 
         const priceCar = document.createElement('div');
-        priceCar.textContent = price;
+        priceCar.textContent = `${price} ₽`;
         specPrice.append(priceCar);
         priceCar.classList.add('product-card-price')
 
         const yearCar = document.createElement('div');
-        yearCar.textContent = year;
+        yearCar.textContent = `${year} г.`;
         specPrice.append(yearCar);
         yearCar.classList.add('product-card-year')
 
         const mileageCar = document.createElement('div');
-        mileageCar.textContent = mileage;
+        mileageCar.textContent = `${mileage} км.`;
         specPrice.append(mileageCar);
         mileageCar.classList.add('product-card-mileage')
 
-        specPrice.classList.add('product-card-spec');
+        specPrice.classList.add('product-card-spec-main');
         carSpec.classList.add('product-card-text');
         carSpec.append(specPrice);
 

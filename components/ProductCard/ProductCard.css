@@ -11,8 +11,9 @@
     border-radius: 20px;
 }
 
-.product-card-spec {
+.product-card-spec-main {
     display: flex;
+    padding-top: 10px;
 }
 
 .product-card-text {
@@ -28,22 +29,23 @@
 .product-card-spec {
     color: darkgray;
     padding-top: 10px;
+    width: 300px;
 }
 
 .product-card-price {
     color: black;
     padding-top: 10px;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .product-card-year {
     color: black;
     padding-top: 10px;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .product-card-mileage {
     color: black;
     padding-top: 10px;
-    margin-left: 100px;
+    margin-left: 150px;
 }

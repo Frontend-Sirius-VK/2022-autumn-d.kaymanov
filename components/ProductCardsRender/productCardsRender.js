@@ -1,22 +1,26 @@
 import {ProductCard} from "../ProductCard/ProductCard.js";
 
 export class ProductCardsRender {
-    constructor(parent, data) {
+    constructor(parent) {
         this.parent = parent;
-        this.data = data;
         this.container = null;
     }
+
     render(data) {
-        console.log(data.rows);
-        data.rows.map(dataFunc => {
-            this.container = document.createElement('div');
-            this.productCard = new ProductCard(this.container);
-            this.productCard.render(data.namecar, data.spec, data.price, data.yearcar, data.mileage);
+        this.container = document.createElement('div');
+        data.forEach((product) => {
+            const productCard = new ProductCard(this.container);
+            productCard.render(product.altimg, product.srcimg, product.namecar, product.spec, product.price, product.yearcar, product.mileage);
+            console.log(product.srcimg)
         });
+        this.parent.append(this.container);
+
     }
 
     update(data) {
-        this.container.innerHTML = '';
+        if (this.container) {
+            this.container.innerHTML = '';
+        }
         this.render(data);
     }
 }

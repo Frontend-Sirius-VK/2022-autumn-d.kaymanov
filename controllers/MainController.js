@@ -7,7 +7,6 @@ export class MainController {
         view.render();
 
         const carCards = new ProductCarData();
-        // EventBus.emit('getCarSpec')
         carCards.fetchData();
     }
 }
