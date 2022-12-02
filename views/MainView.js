@@ -1,7 +1,8 @@
 import {Categories} from "../components/Categories/Categories.js";
 import {Header} from "../components/Header/Header.js";
-import {ProductCard} from "../components/ProductCard/ProductCard.js";
+import {ProductCardsRender} from "../components/ProductCardsRender/productCardsRender.js";
 import EventBus from "../utils/eventBus.js";
+
 
 
 export class MainView {
@@ -11,10 +12,13 @@ export class MainView {
         // this.productCardOne = null;
         // this.productCardTwo = null;
         // this.productCardThree = null;
+        this.carsCards = null;
         this.container = null;
-        EventBus.on('getCarSpec', this.renderCars.bind(this));
+        EventBus.on('getCarSpec', this.update.bind(this));
     }
-    render(data) {
+
+
+    render() {
         const root = document.querySelector('#root');
         this.container = document.createElement('div');
 
@@ -23,11 +27,13 @@ export class MainView {
         this.header = new Header(headerElement);
 
         const categoriesElement = document.createElement('div');
-        this.categories = new Categories(this.container);
+        this.categories = new Categories(categoriesElement);
 
-        // const carContainer = document.createElement('div');
-        // carContainer.append(this.renderCars(data));
-        // this.container.append(carContainer);
+        const carContainer = document.createElement('div');
+        this.carsCards = new ProductCardsRender(carContainer);
+        carContainer.append(this.carsCards);
+
+
 
         // const productCardOne = document.createElement('div');
         // this.productCardOne = new ProductCard(container);
@@ -41,7 +47,7 @@ export class MainView {
 
         // this.renderCars(data);
 
-        this.container.append(headerElement, categoriesElement);
+        this.container.append(headerElement, categoriesElement, carContainer);
         root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
@@ -50,12 +56,11 @@ export class MainView {
         // this.productCardThree.render('Tesla', './components/Photos/tesla_s.jpg', 'Тесла модель S', '2.0л/235 л.с./Дизель' + 'Автомат' + 'Спорткар 5 дв.', '3 000 000 ₽', '2020', '4000 км');
     }
 
-    renderCars(data) {
-        console.log(data.rows);
-        data.forEach(data => {
-            this.productCard = document.createElement('div');
-            this.productCard = new ProductCard(this.container);
-            this.productCard.render(data.namecar, data.spec, data.price, data.yearcar, data.mileage);
-            });
+    update(data = {}) {
+        if (!data || !Object.keys(data).length) {
+            return;
+        }
+
+        this.carsCards.update(data);
     }
 }

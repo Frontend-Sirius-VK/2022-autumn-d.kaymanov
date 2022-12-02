@@ -2,24 +2,8 @@ import EventBus from "../../utils/eventBus.js";
 export class ProductCard {
     constructor(parent) {
         this.parent = parent;
-        this.namecar = null;
-        this.spec = null;
-        this.price = null;
-        this.yearcar = null;
-        this.mileage = null;
     }
 
-    fetchData() {
-        fetch('/getCarSpec').then((response) => response.json()).then((data) => {
-            // this.namecar = namecar;
-            // this.spec = spec;
-            // this.price = price;
-            // this.yearcar = yearcar;
-            // this.mileage = mileage;
-
-            EventBus.emit('getCarSpec', data);
-        })
-    }
 
     render(alt, src, name, spec, price, year, mileage) {
         const container = document.createElement('div');
