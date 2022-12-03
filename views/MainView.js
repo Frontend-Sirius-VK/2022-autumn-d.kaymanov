@@ -25,8 +25,9 @@ export class MainView {
         this.categories = new Categories(categoriesElement);
 
         const carContainer = document.createElement('div');
+        carContainer.classList.add('test');
         this.carsCards = new ProductCardsRender(carContainer);
-        carContainer.append(this.carsCards);
+
 
         this.container.append(headerElement, categoriesElement, carContainer);
         root.append(this.container);

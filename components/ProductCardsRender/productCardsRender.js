@@ -11,7 +11,6 @@ export class ProductCardsRender {
         data.forEach((product) => {
             const productCard = new ProductCard(this.container);
             productCard.render(product.altimg, product.srcimg, product.namecar, product.spec, product.price, product.yearcar, product.mileage);
-            console.log(product.srcimg)
         });
         this.parent.append(this.container);
 
