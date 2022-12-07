@@ -1,7 +1,7 @@
-.productCard {
+.product-card {
     display: flex;
     margin: 10px;
-    border-top: darkgray solid 2px;
+    border-top: var(--text_spec_color) solid 2px;
 }
 
 .product-card-photo {
@@ -24,28 +24,42 @@
 .product-card-name {
     font-size: 20px;
     font-weight: bold;
+    padding-bottom: 10px;
 }
 
 .product-card-spec {
-    color: darkgray;
-    padding-top: 10px;
+    color: var(--text_spec_color);
+    margin-top: 10px;
     width: 300px;
 }
 
 .product-card-price {
-    color: black;
+    color: var(--text_carSpec_color);
     padding-top: 10px;
     margin-left: 150px;
 }
 
 .product-card-year {
-    color: black;
+    color: var(--text_carSpec_color);
     padding-top: 10px;
     margin-left: 150px;
 }
 
 .product-card-mileage {
-    color: black;
+    color: var(--text_carSpec_color);
     padding-top: 10px;
     margin-left: 150px;
 }
+
+.product-card-name-link{
+    text-decoration: none;
+}
+
+.product-card-name-link:visited{
+    color: var(--text_carSpec_color);
+}
+
+.product-card-name-link:hover{
+    font-size: 21px;
+}
+

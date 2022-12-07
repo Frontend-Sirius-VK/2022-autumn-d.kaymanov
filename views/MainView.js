@@ -10,7 +10,7 @@ export class MainView {
         this.header = null;
         this.carsCards = null;
         this.container = null;
-        EventBus.on('getCarSpec', this.update.bind(this));
+        EventBus.on('product-car-data:got-data ', this.update.bind(this));
     }
 
     render() {

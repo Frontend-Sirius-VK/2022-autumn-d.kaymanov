@@ -1,14 +1,14 @@
 .categories {
     display: flex;
     height: 44px;
-    background-color: #DB3727;
+    background-color: var(--main_color);
 }
 
 .сategory {
     padding-top: 8px;
     font-size: 22px;
     font-weight: bolder;
-    color: white;
+    color: var(--text_header_color);
     weight: 97px;
     height: 44px;
     display: block;
