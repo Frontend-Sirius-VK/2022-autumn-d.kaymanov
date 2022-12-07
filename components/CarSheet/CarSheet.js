@@ -5,6 +5,7 @@ export class CarSheet {
     }
 
     render(data) {
+        console.log(data)
         const container = document.createElement('div');
         container.classList.add('productCard')
 

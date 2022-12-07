@@ -32,7 +32,7 @@ export class CarView {
         rootCar.append(this.containerCar);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
-        this.carSheet.render(carContainer);
+        // this.carSheet.render(carContainer);
     }
 
 

@@ -5,7 +5,6 @@ export class ProductCard {
 
     render(product) {
         const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = product;
-        console.log(product);
         const container = document.createElement('div');
         container.classList.add('product-card')
 

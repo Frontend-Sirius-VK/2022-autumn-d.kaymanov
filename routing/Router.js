@@ -4,17 +4,13 @@ import {CarController} from '../controllers/CarController.js';
 
 const routes = [
     {
-        path: '/',
+        path: `^/$`,
         controller: MainController
     },
     {
         path: `^/car/(\\w+)`,
         controller: CarController
     },
-    {
-        path: '/car/4',
-        controller: CarController
-    }
 ]
 
 
@@ -53,13 +49,9 @@ export class Router {
     invokeController() {
         const id = this.getID();
         const pathname = window.location.pathname;
-        console.log(pathname)
         const result = routes.find((route) => {
-            console.log(route)
             const regexp = new RegExp(route.path );
-            console.log(regexp)
             const matches = pathname.match(regexp);
-            console.log(matches)
 
             if (!matches) {
                 return false;
@@ -70,7 +62,7 @@ export class Router {
         if (!result) {
             console.log('404')
         }
-
+        console.log(result.controller)
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
         controller.process(id);
