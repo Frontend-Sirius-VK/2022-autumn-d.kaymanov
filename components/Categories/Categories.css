@@ -1,6 +1,6 @@
 .categories {
     display: flex;
-    height: 44px;
+    height: 45px;
     background-color: var(--main-color);
 }
 
@@ -9,8 +9,8 @@
     font-size: 22px;
     font-weight: bolder;
     color: var(--text-header-color);
-    weight: 97px;
-    height: 44px;
+    weight: 100px;
+    height: 45px;
     display: block;
     margin-left: auto;
     margin-right: auto;
