@@ -1,0 +1,14 @@
+@import "./components/Header/Header.css";
+@import "./components/ProductCard/ProductCard.css";
+@import "./components/Categories/Categories.css";
+
+:root {
+    --main-color: #DB3727;
+    --text-header-color: white;
+    --text-spec-color: darkgray;
+    --text-car-spec-color: black;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}

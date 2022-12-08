@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/server.js"
   },
   "author": "KaimanGeek",
   "license": "ISC",
   "dependencies": {
     "express": "4.18.2",
-    "morgan": "1.10.0"
+    "morgan": "1.10.0",
+    "pg": "8.8.0"
   }
 }

@@ -1,0 +1,64 @@
+.product-card {
+    display: flex;
+    margin: 10px;
+    border-top: var(--text-spec-color) solid 2px;
+}
+
+.product-card-photo {
+    height: 155px;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.product-card-spec-main {
+    display: flex;
+    padding-top: 10px;
+}
+
+.product-card-text {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.product-card-name {
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.product-card-spec {
+    color: var(--text-spec-color);
+    margin-top: 10px;
+    width: 300px;
+}
+
+.product-card-price {
+    color: var(--text-car-spec-color);
+    padding-top: 10px;
+    margin-left: 150px;
+}
+
+.product-card-year {
+    color: var(--text-car-spec-color);
+    padding-top: 10px;
+    margin-left: 150px;
+}
+
+.product-card-mileage {
+    color: var(--text-car-spec-color);
+    padding-top: 10px;
+    margin-left: 150px;
+}
+
+.product-card-name-link{
+    text-decoration: none;
+}
+
+.product-card-name-link:visited{
+    color: var(--text-car-spec-color);
+}
+
+.product-card-name-link:hover{
+    font-size: 21px;
+}
+

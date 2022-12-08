@@ -1,0 +1,16 @@
+.categories {
+    display: flex;
+    height: 45px;
+    background-color: var(--main-color);
+}
+
+.сategory {
+    padding-top: 8px;
+    font-size: 22px;
+    font-weight: bolder;
+    color: var(--text-header-color);
+    height: 45px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
