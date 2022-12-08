@@ -10,12 +10,12 @@ export class CarView {
         this.header = null;
         this.containerCar = null;
         this.carSheet = null;
-        EventBus.on('getOneCarSpec', this.update.bind(this));
+        EventBus.on('one-car-spec:got-data', this.update.bind(this));
     }
 
     render() {
-
-        const rootCar = document.querySelector('#root');
+        const root = document.querySelector('#root');
+        root.innerHTML = '';
         this.containerCar = document.createElement('div');
 
         const headerElement = document.createElement('div');
@@ -25,14 +25,13 @@ export class CarView {
         const categoriesElement = document.createElement('div');
         this.categories = new Categories(categoriesElement);
 
-        const carContainer = document.createElement('div')
+        const carContainer = document.createElement('div');
         this.carSheet = new CarSheet(carContainer);
 
-        this.containerCar.append(headerElement, categoriesElement);
-        rootCar.append(this.containerCar);
+        this.containerCar.append(headerElement, categoriesElement, carContainer);
+        root.append(this.containerCar);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
-        // this.carSheet.render(carContainer);
     }
 
 
@@ -40,7 +39,6 @@ export class CarView {
         if (!data || !Array.isArray(data) || data.length === 0) {
             return;
         }
-
         this.carSheet.update(data);
     }
 }

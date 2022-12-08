@@ -7,12 +7,9 @@ export class CarData {
     }
 
     fetchData(id) {
-        console.log(id)
         fetch(`/getOneCarSpec/${id}`).then((response) => response.json()).then((data) => {
             this.products = data;
-            console.log(data)
-
-            EventBus.emit('getOneCarSpec', data);
+            EventBus.emit('one-car-spec:got-data', data);
         })
     }
 }

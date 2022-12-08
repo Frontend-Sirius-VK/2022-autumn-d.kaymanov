@@ -5,21 +5,23 @@ export class CarSheet {
     }
 
     render(data) {
-        console.log(data)
-        const container = document.createElement('div');
-        container.classList.add('productCard')
+        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = data[0];
+        this.container = document.createElement('div');
+        this.container.classList.add('productCard')
+
+        const idCar = id;
 
         const image = document.createElement('img');
-        image.alt = data.alt;
-        image.src = data.src;
+        image.alt = altimg;
+        image.src = srcimg;
         image.classList.add('product-card-photo');
-        container.appendChild(image);
+        this.container.append(image);
 
         const carSpec = document.createElement('div');
 
         const headText = document.createElement('div');
         const headTextLink = document.createElement('a');
-        headTextLink.textContent = data.name;
+        headTextLink.textContent = namecar;
         headText.append(headTextLink);
         carSpec.append(headText);
         headText.classList.add('product-card-name');
@@ -28,22 +30,22 @@ export class CarSheet {
         const specPrice = document.createElement('div');
 
         const specifications = document.createElement('div');
-        specifications.textContent = data.spec;
+        specifications.textContent = spec;
         specPrice.append(specifications);
         specifications.classList.add('product-card-spec')
 
         const priceCar = document.createElement('div');
-        priceCar.textContent = `${data.price} ₽`;
+        priceCar.textContent = `${price} ₽`;
         specPrice.append(priceCar);
         priceCar.classList.add('product-card-price')
 
         const yearCar = document.createElement('div');
-        yearCar.textContent = `${data.year} г.`;
+        yearCar.textContent = `${yearcar} г.`;
         specPrice.append(yearCar);
         yearCar.classList.add('product-card-year')
 
         const mileageCar = document.createElement('div');
-        mileageCar.textContent = `${data.mileage} км.`;
+        mileageCar.textContent = `${mileage} км.`;
         specPrice.append(mileageCar);
         mileageCar.classList.add('product-card-mileage')
 
@@ -51,11 +53,9 @@ export class CarSheet {
         carSpec.classList.add('product-card-text');
         carSpec.append(specPrice);
 
-        container.append(carSpec);
-        this.parent.append(container);
+        this.container.append(carSpec);
+        this.parent.append(this.container);
     }
-
-
 
     update(data) {
         if (this.container) {

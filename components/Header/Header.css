@@ -1,10 +1,10 @@
 .header {
     height: 76px;
-    border-bottom: var(--main_color) solid 2px;
+    border-bottom: var(--main-color) solid 2px;
 }
 
 .header-text {
-    color: var(--main_color);
+    color: var(--main-color);
     padding-top: 10px;
     display: flex;
     align-items: center;

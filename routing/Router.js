@@ -2,6 +2,7 @@ import {MainController} from '../controllers/MainController.js';
 import {CarController} from '../controllers/CarController.js';
 
 
+
 const routes = [
     {
         path: `^/$`,
@@ -62,7 +63,6 @@ export class Router {
         if (!result) {
             console.log('404')
         }
-        console.log(result.controller)
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
         controller.process(id);
