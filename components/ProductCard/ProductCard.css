@@ -33,19 +33,19 @@
 }
 
 .product-card-price {
-    color: var(--text-carSpec-color);
+    color: var(--text-car-spec-color);
     padding-top: 10px;
     margin-left: 150px;
 }
 
 .product-card-year {
-    color: var(--text-carSpec-color);
+    color: var(--text-car-spec-color);
     padding-top: 10px;
     margin-left: 150px;
 }
 
 .product-card-mileage {
-    color: var(--text-carSpec-color);
+    color: var(--text-car-spec-color);
     padding-top: 10px;
     margin-left: 150px;
 }
@@ -55,7 +55,7 @@
 }
 
 .product-card-name-link:visited{
-    color: var(--text-carSpec-color);
+    color: var(--text-car-spec-color);
 }
 
 .product-card-name-link:hover{
