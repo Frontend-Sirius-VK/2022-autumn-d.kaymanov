@@ -50,15 +50,50 @@
     margin-left: 150px;
 }
 
-.product-card-name-link{
+.product-card-name-link {
     text-decoration: none;
 }
 
-.product-card-name-link:visited{
+.product-card-name-link:visited {
     color: var(--text-car-spec-color);
 }
 
-.product-card-name-link:hover{
+.product-card-name-link:hover {
     font-size: 21px;
+}
+
+@media (max-width: 1024px), (orientation: portrait) {
+    .product-card-price {
+        margin-left: -0.1em;
+        font-size: 30px;
+    }
+
+    .product-card-year {
+        margin-left: -0.1em;
+        font-size: 30px;
+    }
+
+    .product-card-mileage {
+        margin-left: -0.1em;
+        font-size: 30px;
+    }
+
+    .product-card-spec-main {
+        flex-direction: column;
+    }
+
+    .product-card-spec {
+        font-size: 30px;
+    }
+
+    .product-card-name{
+        font-size: 35px;
+    }
+
+    .product-card-photo {
+        height: 300px;
+        width: 375px;
+
+    }
 }
 

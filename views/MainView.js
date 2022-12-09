@@ -11,6 +11,9 @@ export class MainView {
         this.carsCards = null;
         this.container = null;
         EventBus.on('product-car-data:got-data', this.update.bind(this));
+        EventBus.on('product-car-data:not-found', this.errorUpdate.bind(this));
+        EventBus.on('product-car-data:bad-request', this.errorUpdate.bind(this));
+        EventBus.on('product-car-data:server-error', this.errorUpdate.bind(this));
     }
 
     render() {
@@ -40,5 +43,33 @@ export class MainView {
         }
 
         this.carsCards.update(data);
+    }
+
+    renderError(data) {
+        const root = document.querySelector('#root');
+        this.container = document.createElement('div');
+
+        const errorContainer = document.createElement('div');
+        errorContainer.classList.add('error-container__div');
+
+        const errorStatus = document.createElement('p');
+        errorStatus.classList.add('error-container-error-status__p');
+        errorStatus.textContent = data[0];
+
+        const errorText = document.createElement('p');
+        errorText.classList.add('error-container-error-text__p');
+        errorText.textContent = data[1];
+
+        errorContainer.append(errorStatus, errorText);
+
+        this.container.append(errorContainer);
+        root.append(this.container);
+    }
+
+    errorUpdate(data) {
+        if (this.carsCards) {
+            this.carsCards.innerHTML = '';
+        }
+        this.renderError(data);
     }
 }
