@@ -10,6 +10,7 @@ export class MainView {
         this.header = null;
         this.carsCards = null;
         this.container = null;
+        this.root = document.querySelector('#root');
         EventBus.on('product-car-data:got-data', this.update.bind(this));
         EventBus.on('product-car-data:not-found', this.errorUpdate.bind(this));
         EventBus.on('product-car-data:bad-request', this.errorUpdate.bind(this));
@@ -17,7 +18,6 @@ export class MainView {
     }
 
     render() {
-        const root = document.querySelector('#root');
         this.container = document.createElement('div');
 
         const headerElement = document.createElement('div');
@@ -32,7 +32,7 @@ export class MainView {
         this.carsCards = new ProductCardsRender(carContainer);
 
         this.container.append(headerElement, categoriesElement, carContainer);
-        root.append(this.container);
+        this.root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
     }
@@ -46,7 +46,6 @@ export class MainView {
     }
 
     renderError(data) {
-        const root = document.querySelector('#root');
         this.container.innerHTML = '';
 
         const headerElement = document.createElement('div');
@@ -61,16 +60,16 @@ export class MainView {
 
         const errorStatus = document.createElement('p');
         errorStatus.classList.add('error-container-error-status__p');
-        errorStatus.textContent = data[0];
+        errorStatus.textContent = data.title;
 
         const errorText = document.createElement('p');
         errorText.classList.add('error-container-error-text__p');
-        errorText.textContent = data[1];
+        errorText.textContent = data.description;
 
         errorContainer.append(errorStatus, errorText);
 
         this.container.append(headerElement, categoriesElement, errorContainer);
-        root.append(this.container);
+        this.root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
     }

@@ -1,5 +1,6 @@
 import {MainController} from '../controllers/MainController.js';
 import {CarController} from '../controllers/CarController.js';
+import EventBus from "../utils/eventBus.js";
 
 
 
@@ -17,6 +18,16 @@ const routes = [
 
 export class Router {
     constructor() {
+        EventBus.off('carsheet:loading');
+        EventBus.off('main:loading');
+        EventBus.off('product-car-data:got-data');
+        EventBus.off('product-car-data:not-found');
+        EventBus.off('product-car-data:bad-request');
+        EventBus.off('product-car-data:server-error');
+        EventBus.off('one-car-spec:got-data');
+        EventBus.off('one-car-spec:not-found');
+        EventBus.off('one-car-spec:bad-request');
+        EventBus.off('one-car-spec:server-error');
         this.onDocumentClick = this.onDocumentClick.bind(this);
     }
 

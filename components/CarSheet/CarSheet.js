@@ -17,7 +17,7 @@ export class CarSheet {
             return;
         }
 
-        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = data;
+        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage, nameowner, numberowner, descriptioncar} = data;
         this.container = document.createElement('div');
         this.container.classList.add('car-sheet-container')
 
@@ -40,15 +40,15 @@ export class CarSheet {
 
         const owner__data = document.createElement('div');
         owner__data.classList.add('owner__data');
-        owner__data.textContent = 'Дмитрий К.'
+        owner__data.textContent = nameowner;
 
         const owner__messeage = document.createElement('div');
         owner__messeage.classList.add('owner__messeage');
-        owner__messeage.textContent = 'Написать'
+        owner__messeage.textContent = 'Написать';
 
         const owner__number = document.createElement('div');
         owner__number.classList.add('owner__number')
-        owner__number.textContent = '+7-800-555-35-35'
+        owner__number.textContent = numberowner;
 
         owner.append(owner__data, owner__messeage, owner__number);
 
@@ -86,7 +86,7 @@ export class CarSheet {
 
         const sellerComment__text = document.createElement('div')
         sellerComment__text.classList.add('sellerComment__text');
-        sellerComment__text.textContent = 'Крутая машина, вот бы ещё описание из бд брать)'
+        sellerComment__text.textContent = descriptioncar;
 
         sellerComment.append(sellerComment__header, sellerComment__text);
 
