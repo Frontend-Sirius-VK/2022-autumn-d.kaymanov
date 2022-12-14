@@ -17,7 +17,7 @@ export class CarSheet {
             return;
         }
 
-        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = data[0];
+        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = data;
         this.container = document.createElement('div');
         this.container.classList.add('car-sheet-container')
 
@@ -68,11 +68,11 @@ export class CarSheet {
         carSpecAndIMG__allspec.append(carSpecAndIMG__allspec__spec1, carSpecAndIMG__allspec__spec2, carSpecAndIMG__allspec__year, carSpecAndIMG__allspec__mileage);
 
         const carSpecAndIMG__img = document.createElement('div')
+        carSpecAndIMG__img.classList.add('carSpecAndIMG__img');
         const carImg = document.createElement('img');
         carImg.classList.add('carImg')
         carImg.alt = altimg;
         carImg.src = srcimg;
-        carImg.classList.add('carSpecAndIMG__img');
         carSpecAndIMG__img.append(carImg)
 
         carSpecAndIMG.append(carSpecAndIMG__allspec, carSpecAndIMG__img);

@@ -60,7 +60,7 @@ app.get('/getOneCarSpec/:id', async (req, res) => {
         if (!result){
             res.status(500).end();
         }
-        res.json(result);
+        res.json(result[0]);
     } catch (error){
         res.status(500).end();
     }

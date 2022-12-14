@@ -39,10 +39,9 @@ export class CarView {
 
 
     update(data = {}) {
-        if (!data || !Array.isArray(data) || data.length === 0) {
+        if (!data) {
             return;
         }
-        console.log(data)
         this.carSheet.update(data);
     }
 
