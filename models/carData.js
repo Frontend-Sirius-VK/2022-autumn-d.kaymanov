@@ -9,7 +9,6 @@ export class CarData {
         fetch(`/getOneCarSpec/${id}`)
             .then((response) => {
                 const {status} = response;
-
                 if (status === 404) {
                     EventBus.emit('one-car-spec:not-found', ['Ошибка 404', 'Страница, которую вы запрашиваете, не существует. Возможно был введен неверный адрес.']);
                     return;
@@ -29,7 +28,6 @@ export class CarData {
             })
 
             .then((data) => {
-                this.products = data;
                 EventBus.emit('one-car-spec:got-data', data);
             })
     }

@@ -42,12 +42,20 @@ export class CarView {
         if (!data || !Array.isArray(data) || data.length === 0) {
             return;
         }
+        console.log(data)
         this.carSheet.update(data);
     }
 
     renderError(data) {
         const root = document.querySelector('#root');
         this.container = document.createElement('div');
+
+        const headerElement = document.createElement('div');
+        headerElement.classList.add('header');
+        this.header = new Header(headerElement);
+
+        const categoriesElement = document.createElement('div');
+        this.categories = new Categories(categoriesElement);
 
         const errorContainer = document.createElement('div');
         errorContainer.classList.add('error-container__div');
@@ -62,13 +70,15 @@ export class CarView {
 
         errorContainer.append(errorStatus, errorText);
 
-        this.container.append(errorContainer);
+        this.container.append(headerElement, categoriesElement, errorContainer);
         root.append(this.container);
+        this.header.render(headerElement);
+        this.categories.render(categoriesElement);
     }
 
     errorUpdate(data) {
-        if (this.carSheet) {
-            this.carSheet.innerHTML = '';
+        if (this.containerCar) {
+            this.containerCar.innerHTML = '';
         }
         this.renderError(data);
     }

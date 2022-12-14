@@ -47,7 +47,14 @@ export class MainView {
 
     renderError(data) {
         const root = document.querySelector('#root');
-        this.container = document.createElement('div');
+        this.container.innerHTML = '';
+
+        const headerElement = document.createElement('div');
+        headerElement.classList.add('header');
+        this.header = new Header(headerElement);
+
+        const categoriesElement = document.createElement('div');
+        this.categories = new Categories(categoriesElement);
 
         const errorContainer = document.createElement('div');
         errorContainer.classList.add('error-container__div');
@@ -62,8 +69,10 @@ export class MainView {
 
         errorContainer.append(errorStatus, errorText);
 
-        this.container.append(errorContainer);
+        this.container.append(headerElement, categoriesElement, errorContainer);
         root.append(this.container);
+        this.header.render(headerElement);
+        this.categories.render(categoriesElement);
     }
 
     errorUpdate(data) {

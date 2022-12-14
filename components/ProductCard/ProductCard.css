@@ -4,10 +4,16 @@
     border-top: var(--text-spec-color) solid 2px;
 }
 
-.product-card-photo {
-    height: 155px;
+.imageContainer {
+    height: 200px;
+    width: 270px;
     padding-top: 10px;
     border-radius: 20px;
+}
+
+.product-card-photo {
+    width: 100%;
+    object-fit:cover;
 }
 
 .product-card-spec-main {
@@ -90,7 +96,7 @@
         font-size: 35px;
     }
 
-    .product-card-photo {
+    .imageContainer {
         height: 300px;
         width: 375px;
 

@@ -9,7 +9,7 @@ const routes = [
         controller: MainController
     },
     {
-        path: `^/car/(\\w+)`,
+        path: `^/cars/(\\w+)`,
         controller: CarController
     },
 ]
@@ -36,7 +36,7 @@ export class Router {
     getID() {
         const pathParser = window.location.pathname.split('/')
         let id;
-        if (pathParser[1] === 'car') {
+        if (pathParser[1] !== undefined) {
             id = pathParser[2]
         }
         return id
@@ -49,15 +49,13 @@ export class Router {
 
     invokeController() {
         const id = this.getID();
-        const pathname = window.location.pathname;
+        const controllerСheck = new MainController();
+        const {pathname} = window.location;
         const result = routes.find((route) => {
             const regexp = new RegExp(route.path );
             const matches = pathname.match(regexp);
 
-            if (!matches) {
-                return false;
-            }
-            return true;
+            return Boolean(matches)
         });
 
         if (!result) {
@@ -65,8 +63,11 @@ export class Router {
         }
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        controller.process(id);
-
+        if (result.controller !== controllerСheck){
+            controller.process(id);
+        } else {
+            controller.process();
+        }
     }
 
     start() {

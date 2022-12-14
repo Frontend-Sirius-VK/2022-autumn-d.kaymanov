@@ -7,7 +7,7 @@ const pool = new Pool({
     port: '5432'
 })
 
-async function getCarSpec() {
+async function getCarsSpec() {
     try {
         const result = await pool.query('Select * from carspec')
         return result.rows
@@ -55,7 +55,7 @@ async function deleteCarSpec(id) {
 }
 
 module.exports = {
-    getCarSpec,
+    getCarsSpec,
     createProductCar,
     getOneCarSpec,
     putCarSpec,

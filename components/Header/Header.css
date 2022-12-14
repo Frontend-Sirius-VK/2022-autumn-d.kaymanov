@@ -18,6 +18,7 @@
 
 @media (max-width: 1024px), (orientation: portrait) {
     .header-text{
+        padding-left: 25px;
         display: flex;
         justify-content: left;
         font-size: 60px;

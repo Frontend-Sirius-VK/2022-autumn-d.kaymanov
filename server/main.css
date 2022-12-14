@@ -1,8 +1,8 @@
-@import "./components/Header/Header.css";
-@import "./components/ProductCard/ProductCard.css";
-@import "./components/Categories/Categories.css";
-@import "./components/CarSheet/CarSheet.css";
-@import './components/loader/loader.css';
+@import "../components/Header/Header.css";
+@import "../components/ProductCard/ProductCard.css";
+@import "../components/Categories/Categories.css";
+@import "../components/CarSheet/CarSheet.css";
+@import '../components/loader/loader.css';
 
 :root {
     --main-color: #DB3727;
@@ -26,10 +26,14 @@ body {
 
 }
 
-.error-container-error-text__p{
+.error-container-error-text__p {
     color: var(--text-spec-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 20px;
+}
+
+.error-container__div {
+    margin-top: 300px;
 }

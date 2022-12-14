@@ -2,13 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    vertical-align: middle;
     padding: 20px;
+    height: 600px;
 }
 
 .loader {
     width: 48px;
     height: 48px;
-    border: 5px solid rgb(0, 0, 0);
+    border: 5px solid var(--text-car-spec-color);
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

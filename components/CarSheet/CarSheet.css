@@ -88,6 +88,11 @@
     height: 350px;
 }
 
+.carImg {
+    width: 100%;
+    object-fit:cover;
+}
+
 .sellerComment {
     margin-top: 20px;
 }
