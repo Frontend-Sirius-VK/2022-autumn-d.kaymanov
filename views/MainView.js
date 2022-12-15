@@ -12,9 +12,9 @@ export class MainView {
         this.container = null;
         this.root = document.querySelector('#root');
         EventBus.on('product-car-data:got-data', this.update.bind(this));
-        EventBus.on('product-car-data:not-found', this.errorUpdate.bind(this));
-        EventBus.on('product-car-data:bad-request', this.errorUpdate.bind(this));
-        EventBus.on('product-car-data:server-error', this.errorUpdate.bind(this));
+        EventBus.on('product-car-data:not-found', this.renderError.bind(this));
+        EventBus.on('product-car-data:bad-request', this.renderError.bind(this));
+        EventBus.on('product-car-data:server-error', this.renderError.bind(this));
     }
 
     render() {
@@ -72,12 +72,5 @@ export class MainView {
         this.root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
-    }
-
-    errorUpdate(data) {
-        if (this.carsCards) {
-            this.carsCards.innerHTML = '';
-        }
-        this.renderError(data);
     }
 }

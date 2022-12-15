@@ -12,9 +12,9 @@ export class CarView {
         this.carSheet = null;
         this.root = document.querySelector('#root');
         EventBus.on('one-car-spec:got-data', this.update.bind(this));
-        EventBus.on('one-car-spec:not-found', this.errorUpdate.bind(this));
-        EventBus.on('one-car-spec:bad-request', this.errorUpdate.bind(this));
-        EventBus.on('one-car-spec:server-error', this.errorUpdate.bind(this));
+        EventBus.on('one-car-spec:not-found', this.renderError.bind(this));
+        EventBus.on('one-car-spec:bad-request', this.renderError.bind(this));
+        EventBus.on('one-car-spec:server-error', this.renderError.bind(this));
     }
 
     render() {
@@ -46,6 +46,9 @@ export class CarView {
     }
 
     renderError(data) {
+        if (this.containerCar) {
+            this.containerCar.innerHTML = '';
+        }
         this.container = document.createElement('div');
 
         const headerElement = document.createElement('div');
@@ -72,12 +75,5 @@ export class CarView {
         this.root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
-    }
-
-    errorUpdate(data) {
-        if (this.containerCar) {
-            this.containerCar.innerHTML = '';
-        }
-        this.renderError(data);
     }
 }
