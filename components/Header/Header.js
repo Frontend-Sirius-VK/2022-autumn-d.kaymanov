@@ -5,10 +5,18 @@ export class Header {
 
     render() {
         const container = document.createElement('div');
+        container.classList.add('header')
+
         const header = document.createElement('div');
         header.textContent = 'auto.ru';
         header.classList.add('header-text');
-        this.parent.appendChild(header);
-        this.parent.append(container);
+
+        const menu = document.createElement('div');
+        menu.textContent = '☰';
+        menu.classList.add('menu');
+
+        container.append(header, menu);
+
+        this.parent.appendChild(container);
     }
 }

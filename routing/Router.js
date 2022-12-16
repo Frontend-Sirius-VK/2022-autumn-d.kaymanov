@@ -1,5 +1,6 @@
 import {MainController} from '../controllers/MainController.js';
 import {CarController} from '../controllers/CarController.js';
+import EventBus from "../utils/eventBus.js";
 
 
 
@@ -9,7 +10,7 @@ const routes = [
         controller: MainController
     },
     {
-        path: `^/car/(\\w+)`,
+        path: `^/cars/(\\w+)`,
         controller: CarController
     },
 ]
@@ -17,6 +18,16 @@ const routes = [
 
 export class Router {
     constructor() {
+        EventBus.off('carsheet:loading');
+        EventBus.off('main:loading');
+        EventBus.off('product-car-data:got-data');
+        EventBus.off('product-car-data:not-found');
+        EventBus.off('product-car-data:bad-request');
+        EventBus.off('product-car-data:server-error');
+        EventBus.off('one-car-spec:got-data');
+        EventBus.off('one-car-spec:not-found');
+        EventBus.off('one-car-spec:bad-request');
+        EventBus.off('one-car-spec:server-error');
         this.onDocumentClick = this.onDocumentClick.bind(this);
     }
 
@@ -36,7 +47,7 @@ export class Router {
     getID() {
         const pathParser = window.location.pathname.split('/')
         let id;
-        if (pathParser[1] === 'car') {
+        if (pathParser[1] !== undefined) {
             id = pathParser[2]
         }
         return id
@@ -49,15 +60,13 @@ export class Router {
 
     invokeController() {
         const id = this.getID();
-        const pathname = window.location.pathname;
+        const controllerСheck = new MainController();
+        const {pathname} = window.location;
         const result = routes.find((route) => {
             const regexp = new RegExp(route.path );
             const matches = pathname.match(regexp);
 
-            if (!matches) {
-                return false;
-            }
-            return true;
+            return Boolean(matches)
         });
 
         if (!result) {
@@ -65,8 +74,11 @@ export class Router {
         }
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        controller.process(id);
-
+        if (result.controller !== controllerСheck){
+            controller.process(id);
+        } else {
+            controller.process();
+        }
     }
 
     start() {

@@ -10,11 +10,14 @@ export class MainView {
         this.header = null;
         this.carsCards = null;
         this.container = null;
+        this.root = document.querySelector('#root');
         EventBus.on('product-car-data:got-data', this.update.bind(this));
+        EventBus.on('product-car-data:not-found', this.renderError.bind(this));
+        EventBus.on('product-car-data:bad-request', this.renderError.bind(this));
+        EventBus.on('product-car-data:server-error', this.renderError.bind(this));
     }
 
     render() {
-        const root = document.querySelector('#root');
         this.container = document.createElement('div');
 
         const headerElement = document.createElement('div');
@@ -29,7 +32,7 @@ export class MainView {
         this.carsCards = new ProductCardsRender(carContainer);
 
         this.container.append(headerElement, categoriesElement, carContainer);
-        root.append(this.container);
+        this.root.append(this.container);
         this.header.render(headerElement);
         this.categories.render(categoriesElement);
     }
@@ -40,5 +43,34 @@ export class MainView {
         }
 
         this.carsCards.update(data);
+    }
+
+    renderError(data) {
+        this.container.innerHTML = '';
+
+        const headerElement = document.createElement('div');
+        headerElement.classList.add('header');
+        this.header = new Header(headerElement);
+
+        const categoriesElement = document.createElement('div');
+        this.categories = new Categories(categoriesElement);
+
+        const errorContainer = document.createElement('div');
+        errorContainer.classList.add('error-container__div');
+
+        const errorStatus = document.createElement('p');
+        errorStatus.classList.add('error-container-error-status__p');
+        errorStatus.textContent = data.title;
+
+        const errorText = document.createElement('p');
+        errorText.classList.add('error-container-error-text__p');
+        errorText.textContent = data.description;
+
+        errorContainer.append(errorStatus, errorText);
+
+        this.container.append(headerElement, categoriesElement, errorContainer);
+        this.root.append(this.container);
+        this.header.render(headerElement);
+        this.categories.render(categoriesElement);
     }
 }

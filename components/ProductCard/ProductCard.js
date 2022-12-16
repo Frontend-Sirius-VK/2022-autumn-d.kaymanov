@@ -1,25 +1,29 @@
 export class ProductCard {
     constructor(parent) {
         this.parent = parent;
+        this.container = null;
     }
 
     render(product) {
         const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = product;
-        const container = document.createElement('div');
-        container.classList.add('product-card')
+        this.container = document.createElement('div');
+        this.container.classList.add('product-card')
 
+        const imageContainer = document.createElement('div')
+        imageContainer.classList.add('imageContainer')
         const image = document.createElement('img');
         image.alt = altimg;
         image.src = srcimg;
         image.classList.add('product-card-photo');
-        container.appendChild(image);
+        imageContainer.append(image)
+        this.container.appendChild(imageContainer);
 
         const carSpec = document.createElement('div');
 
         const headText = document.createElement('div');
         const headTextLink = document.createElement('a');
         headTextLink.textContent = namecar;
-        headTextLink.href = `/car/${id}`;
+        headTextLink.href = `/cars/${id}`;
         headText.append(headTextLink);
         carSpec.append(headText);
         headText.classList.add('product-card-name');
@@ -51,8 +55,8 @@ export class ProductCard {
         carSpec.classList.add('product-card-text');
         carSpec.append(specPrice);
 
-        container.append(carSpec);
-        this.parent.append(container);
+        this.container.append(carSpec);
+        this.parent.append(this.container);
     }
 }
 
