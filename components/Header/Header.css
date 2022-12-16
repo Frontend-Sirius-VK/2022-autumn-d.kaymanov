@@ -2,11 +2,11 @@
     height: 75px;
 }
 
-.menu {
+.header__menu {
     display: none;
 }
 
-.header-text {
+.header__text {
     color: var(--main-color);
     padding-top: 10px;
     display: flex;
@@ -17,14 +17,14 @@
 }
 
 @media (max-width: 1024px), (orientation: portrait) {
-    .header-text{
+    .header__text{
         padding-left: 25px;
         display: flex;
         justify-content: left;
         font-size: 60px;
     }
 
-    .menu{
+    .header__menu{
         padding-top: 20px;
         visibility: visible;
         display: flex;

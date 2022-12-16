@@ -6,7 +6,7 @@ export class CarData {
         this.products = null;
     }
     fetchData(id) {
-        fetch(`/getOneCarSpec/${id}`)
+        fetch(`/api/getOneCarSpec/${id}`)
             .then((response) => {
                 const {status} = response;
                 if (status === 404) {

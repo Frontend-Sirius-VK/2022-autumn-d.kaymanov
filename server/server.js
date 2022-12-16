@@ -12,23 +12,23 @@ const port = process.env.PORT || 3000;
 
 const db = require('./database/databasepg.js')
 
-app.get('/', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname, '.', 'index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-})
+// app.get('/', (req,res) => {
+//     try {
+//         res.sendFile(path.join(__dirname, '.', 'index.html'));
+//     } catch (error){
+//         res.status(500).end();
+//     }
+// })
 
-app.get('/cars/:id', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname + '/index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-})
+// app.get('/cars/:id', (req,res) => {
+//     try {
+//         res.sendFile(path.join(__dirname + '/index.html'));
+//     } catch (error){
+//         res.status(500).end();
+//     }
+// })
 
-app.get('/getCarsSpec', async (req, res) => {
+app.get('/api/getCarsSpec', async (req, res) => {
     try {
         const result = await db.getCarsSpec();
         if (!result){
@@ -40,7 +40,7 @@ app.get('/getCarsSpec', async (req, res) => {
     }
 });
 
-app.post('/postCar', async (req, res) => {
+app.post('/api/postCar', async (req, res) => {
     try {
         const result = await db.createProductCar(req);
         if (!result){
@@ -53,7 +53,7 @@ app.post('/postCar', async (req, res) => {
     }
 })
 
-app.get('/getOneCarSpec/:id', async (req, res) => {
+app.get('/api/getOneCarSpec/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.getOneCarSpec(id);
@@ -66,7 +66,7 @@ app.get('/getOneCarSpec/:id', async (req, res) => {
     }
 });
 
-app.put('/updateCarSpec', async (req, res) => {
+app.put('/api/updateCarSpec', async (req, res) => {
     try {
         const result = await db.putCarSpec(req);
         if (!result){
@@ -78,7 +78,7 @@ app.put('/updateCarSpec', async (req, res) => {
     }
 });
 
-app.delete('/deleteCarSpec/:id', async (req, res) => {
+app.delete('/api/deleteCarSpec/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.deleteCarSpec(id);

@@ -28,7 +28,6 @@ export class MainView {
         this.categories = new Categories(categoriesElement);
 
         const carContainer = document.createElement('div');
-        carContainer.classList.add('test');
         this.carsCards = new ProductCardsRender(carContainer);
 
         this.container.append(headerElement, categoriesElement, carContainer);
@@ -41,7 +40,6 @@ export class MainView {
         if (!data || !Array.isArray(data) || data.length === 0) {
             return;
         }
-
         this.carsCards.update(data);
     }
 
