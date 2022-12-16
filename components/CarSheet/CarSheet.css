@@ -4,6 +4,7 @@
     justify-content: center;
     overflow: auto;
 }
+
 .carSheetContainer__headerCar{
     margin-top: 50px;
     display: flex;
@@ -12,6 +13,7 @@
     justify-content: center;
     overflow: auto;
 }
+
 
 .carSheetContainer__headerCar__carNameDiv{
     width: 600px;

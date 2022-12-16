@@ -2,6 +2,7 @@ import template from './productcard.handlebars'
 export class ProductCard {
     constructor(parent) {
         this.parent = parent;
+        this.container = null;
     }
 
     render(product) {

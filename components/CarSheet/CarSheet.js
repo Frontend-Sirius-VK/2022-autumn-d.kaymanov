@@ -1,6 +1,7 @@
 import EventBus from '../../utils/eventBus.js';
 import {Loader} from '../loader/loader.js';
 import template from './carsheet.handlebars';
+
 export class CarSheet {
     constructor(parent) {
         const container = document.createElement('div');
