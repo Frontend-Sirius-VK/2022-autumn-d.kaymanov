@@ -4,3 +4,7 @@ import './main.css';
 
 router.start();
 
+window.addEventListener('popstate', (event) => {
+    router.invokeController();
+});
+

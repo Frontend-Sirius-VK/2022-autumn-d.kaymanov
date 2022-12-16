@@ -5,7 +5,7 @@ export class ProductCarsData {
         this.products = null;
     }
     fetchData() {
-        fetch('/api/getCarsSpec')
+        fetch('/api/cars')
             .then((response) => {
                 const {status} = response;
 

@@ -11,6 +11,7 @@
     border-radius: 20px;
 }
 
+
 .productCard__imageContainer__photo {
     width: 100%;
     object-fit:cover;
@@ -30,7 +31,7 @@
 .productCard__carSpec_headText {
     font-size: 20px;
     font-weight: bold;
-    padding-bottom: 10px;
+    height: 30px;
 }
 
 .productCard__carSpec__main__specifications {

@@ -11,6 +11,7 @@ export class MainView {
         this.carsCards = null;
         this.container = null;
         this.root = document.querySelector('#root');
+        this.root.innerHTML = '';
         EventBus.on('product-car-data:got-data', this.update.bind(this));
         EventBus.on('product-car-data:not-found', this.renderError.bind(this));
         EventBus.on('product-car-data:bad-request', this.renderError.bind(this));

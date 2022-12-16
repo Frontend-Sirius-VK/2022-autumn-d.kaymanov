@@ -3,7 +3,6 @@ import {CarController} from '../controllers/CarController.js';
 import EventBus from "../utils/eventBus.js";
 
 
-
 const routes = [
     {
         path: `^/$`,
@@ -14,6 +13,8 @@ const routes = [
         controller: CarController
     },
 ]
+
+const controllerСheck = [new MainController()];
 
 
 export class Router {
@@ -60,7 +61,6 @@ export class Router {
 
     invokeController() {
         const id = this.getID();
-        const controllerСheck = new MainController();
         const {pathname} = window.location;
         const result = routes.find((route) => {
             const regexp = new RegExp(route.path );
