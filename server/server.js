@@ -1,6 +1,5 @@
 const express = require('express');
 const morgan = require('morgan');
-const cors = require('cors');
 const path = require('path');
 
 const app = express();
@@ -13,7 +12,7 @@ const port = process.env.PORT || 3000;
 
 const db = require('./database/databasepg.js')
 
-app.get('/api/cars', cors(), async (req, res) => {
+app.get('/api/cars', async (req, res) => {
     try {
         const result = await db.getCarsSpec();
         if (!result){
@@ -28,7 +27,7 @@ app.get('/api/cars', cors(), async (req, res) => {
     }
 });
 
-app.post('/api/cars', cors(),async (req, res) => {
+app.post('/api/cars',async (req, res) => {
     try {
         const result = await db.createProductCar(req);
         if (!result){
@@ -44,7 +43,7 @@ app.post('/api/cars', cors(),async (req, res) => {
     }
 })
 
-app.get('/api/cars/:id', cors(), async (req, res) => {
+app.get('/api/cars/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.getOneCarSpec(id);
@@ -60,7 +59,7 @@ app.get('/api/cars/:id', cors(), async (req, res) => {
     }
 });
 
-app.put('/api/cars',  cors(),async (req, res) => {
+app.put('/api/cars',async (req, res) => {
     try {
         const result = await db.putCarSpec(req);
         if (!result){
@@ -75,7 +74,7 @@ app.put('/api/cars',  cors(),async (req, res) => {
     }
 });
 
-app.delete('/api/cars/:id', cors(), async (req, res) => {
+app.delete('/api/cars/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.deleteCarSpec(id);
