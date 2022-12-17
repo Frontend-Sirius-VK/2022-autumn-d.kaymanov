@@ -70,6 +70,10 @@
     font-size: 21px;
 }
 
+.productCard__carSpec_headText__link:link{
+    color: var(--text-car-spec-color);
+}
+
 @media (max-width: 1024px), (orientation: portrait) {
     .productCard__carSpec__main__price {
         margin-left: -0.1em;
