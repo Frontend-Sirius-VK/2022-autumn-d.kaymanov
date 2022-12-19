@@ -11,6 +11,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 const db = require('./database/databasepg.js')
+const {json} = require("express");
 
 app.get('/api/cars', async (req, res) => {
     try {
@@ -20,6 +21,9 @@ app.get('/api/cars', async (req, res) => {
         }
         if (result.code === 'ECONNREFUSED') {
             res.status(500).end();
+        }
+        if (json(result) === ''){
+            res.status(404).end();
         }
         res.json(result);
     } catch (error){
@@ -36,6 +40,13 @@ app.post('/api/cars',async (req, res) => {
         if (result.name === 'error') {
             res.status(404).end();
         }
+        if (result.status === 400){
+            res.status(400).end();
+        }
+        if (typeof(JSON.parse(result)) !== 'object') {
+            res.status(404).end();
+        }
+
         res.json(result);
         return res;
     } catch (error){
