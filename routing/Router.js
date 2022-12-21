@@ -3,7 +3,6 @@ import {CarController} from '../controllers/CarController.js';
 import EventBus from "../utils/eventBus.js";
 
 
-
 const routes = [
     {
         path: `^/$`,
@@ -14,6 +13,8 @@ const routes = [
         controller: CarController
     },
 ]
+
+const controllerСheck = [new MainController()];
 
 
 export class Router {
@@ -60,7 +61,6 @@ export class Router {
 
     invokeController() {
         const id = this.getID();
-        const controllerСheck = new MainController();
         const {pathname} = window.location;
         const result = routes.find((route) => {
             const regexp = new RegExp(route.path );
@@ -74,20 +74,24 @@ export class Router {
         }
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        if (result.controller !== controllerСheck){
-            controller.process(id);
-        } else {
+        if (controllerСheck.includes(result.controller)){
             controller.process();
+        } else {
+            controller.process(id);
         }
     }
 
     start() {
+        window.addEventListener('popstate', (event) => {
+            router.invokeController();
+        });
         document.addEventListener('click', this.onDocumentClick);
         this.invokeController();
     }
 
     stop() {
         document.removeEventListener('click', this.onDocumentClick);
+        window.removeEventListener('popstate');
     }
 }
 

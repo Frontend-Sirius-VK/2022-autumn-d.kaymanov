@@ -1,10 +1,10 @@
-.car-sheet-container{
+.carSheetContainer{
     align-items: center;
     align-content: center;
     justify-content: center;
     overflow: auto;
 }
-.headerCar{
+.carSheetContainer__headerCar{
     margin-top: 50px;
     display: flex;
     align-items: center;
@@ -17,12 +17,12 @@
     width: 600px;
 }
 
-.headerCar__carPriceDiv{
+.headerCar__price{
     font-size: 30px;
     font-weight: 900;
 }
 
-.owner {
+.carSheetContainer__owner {
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@
     justify-content: center;
 }
 
-.carSpecAndIMG {
+.carSheetContainer__carSpecAndIMG {
     margin-top: 20px;
     display: flex;
     align-items: center;
@@ -88,12 +88,12 @@
     height: 350px;
 }
 
-.carImg {
+.carSpecAndIMG__img__carImg {
     width: 100%;
     object-fit:cover;
 }
 
-.sellerComment {
+.carSheetContainer__sellerComment {
     margin-top: 20px;
 }
 
@@ -108,19 +108,21 @@
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 @media (max-width: 1024px), (orientation: portrait) {
-    .headerCar{
+    .carSheetContainer__headerCar{
         flex-direction: column;
     }
     .owner__messeage{
         display: none;
     }
-    .carSpecAndIMG{
+    .carSheetContainer__carSpecAndIMG{
         flex-direction: column-reverse;
     }
-    .headerCar__carPriceDiv{
+    .headerCar__price{
         width: 600px;
     }
 

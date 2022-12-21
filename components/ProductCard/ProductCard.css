@@ -1,102 +1,109 @@
-.product-card {
+.productCard {
     display: flex;
     margin: 10px;
     border-top: var(--text-spec-color) solid 2px;
 }
 
-.imageContainer {
+.productCard__imageContainer {
     height: 200px;
     width: 270px;
     padding-top: 10px;
     border-radius: 20px;
 }
 
-.product-card-photo {
+
+.imageContainer__photo {
     width: 100%;
     object-fit:cover;
+    min-width: 200px;
 }
 
-.product-card-spec-main {
+.carSpec__main {
     display: flex;
     padding-top: 10px;
+    font-size: 20px;
 }
 
-.product-card-text {
+.productCard__carSpec {
     margin-top: 10px;
     margin-left: 10px;
 }
 
-.product-card-name {
-    font-size: 20px;
+.carSpec__headText {
     font-weight: bold;
-    padding-bottom: 10px;
+    height: 25px;
 }
 
-.product-card-spec {
+.main__specifications {
     color: var(--text-spec-color);
     margin-top: 10px;
     width: 300px;
 }
 
-.product-card-price {
+.main__price {
     color: var(--text-car-spec-color);
     padding-top: 10px;
-    margin-left: 150px;
+    margin-left: 10vw;
 }
 
-.product-card-year {
+.main__year {
     color: var(--text-car-spec-color);
     padding-top: 10px;
-    margin-left: 150px;
+    margin-left: 10vw;
 }
 
-.product-card-mileage {
+.main__mileage {
     color: var(--text-car-spec-color);
     padding-top: 10px;
-    margin-left: 150px;
+    margin-left: 10vw;
 }
 
-.product-card-name-link {
+.headText__link {
     text-decoration: none;
+    font-size: 28px;
 }
 
-.product-card-name-link:visited {
+.headText__link:link{
     color: var(--text-car-spec-color);
 }
 
-.product-card-name-link:hover {
-    font-size: 21px;
+.headText__link:visited {
+    color: var(--text-car-spec-color);
+}
+
+.headText__link:hover {
+    color: var(--main-color);
 }
 
 @media (max-width: 1024px), (orientation: portrait) {
-    .product-card-price {
+    .main__price {
         margin-left: -0.1em;
         font-size: 30px;
     }
 
-    .product-card-year {
+    .main__year {
         margin-left: -0.1em;
         font-size: 30px;
     }
 
-    .product-card-mileage {
+    .main__mileage {
         margin-left: -0.1em;
         font-size: 30px;
     }
 
-    .product-card-spec-main {
+    .carSpec__main {
         flex-direction: column;
     }
 
-    .product-card-spec {
+    .main__specifications {
         font-size: 30px;
     }
 
-    .product-card-name{
-        font-size: 35px;
+    .carSpec__headText{
+        font-size: 10px;
     }
 
-    .imageContainer {
+    .productCard__imageContainer {
         height: 300px;
         width: 375px;
 

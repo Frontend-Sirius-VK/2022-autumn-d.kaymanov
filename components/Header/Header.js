@@ -1,22 +1,16 @@
+import template from './header.handlebars';
 export class Header {
     constructor(parent) {
         this.parent = parent;
+        this.headingText = 'auto.ru';
+        this.menuText = '☰';
     }
 
-    render() {
-        const container = document.createElement('div');
-        container.classList.add('header')
+    render(container) {
+        const {headingText, menuText} = this;
+        const context = {headingText, menuText};
+        const html = template(context);
 
-        const header = document.createElement('div');
-        header.textContent = 'auto.ru';
-        header.classList.add('header-text');
-
-        const menu = document.createElement('div');
-        menu.textContent = '☰';
-        menu.classList.add('menu');
-
-        container.append(header, menu);
-
-        this.parent.appendChild(container);
+        this.parent.innerHTML += html;
     }
 }

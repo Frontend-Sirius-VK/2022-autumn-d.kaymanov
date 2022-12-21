@@ -11,28 +11,19 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 const db = require('./database/databasepg.js')
+const {json} = require("express");
 
-app.get('/', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname, '.', 'index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-})
-
-app.get('/cars/:id', (req,res) => {
-    try {
-        res.sendFile(path.join(__dirname + '/index.html'));
-    } catch (error){
-        res.status(500).end();
-    }
-})
-
-app.get('/getCarsSpec', async (req, res) => {
+app.get('/api/cars', async (req, res) => {
     try {
         const result = await db.getCarsSpec();
         if (!result){
             res.status(500).end();
+        }
+        if (result.code === 'ECONNREFUSED') {
+            res.status(500).end();
+        }
+        if (json(result) === ''){
+            res.status(404).end();
         }
         res.json(result);
     } catch (error){
@@ -40,12 +31,22 @@ app.get('/getCarsSpec', async (req, res) => {
     }
 });
 
-app.post('/postCar', async (req, res) => {
+app.post('/api/cars',async (req, res) => {
     try {
         const result = await db.createProductCar(req);
         if (!result){
             res.status(500).end();
         }
+        if (result.name === 'error') {
+            res.status(404).end();
+        }
+        if (result.status === 400){
+            res.status(400).end();
+        }
+        if (typeof(JSON.parse(result)) !== 'object') {
+            res.status(404).end();
+        }
+
         res.json(result);
         return res;
     } catch (error){
@@ -53,12 +54,15 @@ app.post('/postCar', async (req, res) => {
     }
 })
 
-app.get('/getOneCarSpec/:id', async (req, res) => {
+app.get('/api/cars/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.getOneCarSpec(id);
         if (!result){
             res.status(500).end();
+        }
+        if (result.name === 'error') {
+            res.status(404).end();
         }
         res.json(result[0]);
     } catch (error){
@@ -66,11 +70,14 @@ app.get('/getOneCarSpec/:id', async (req, res) => {
     }
 });
 
-app.put('/updateCarSpec', async (req, res) => {
+app.put('/api/cars',async (req, res) => {
     try {
         const result = await db.putCarSpec(req);
         if (!result){
             res.status(500).end();
+        }
+        if (result.name === 'error') {
+            res.status(404).end();
         }
         res.json(result);
     } catch (error){
@@ -78,10 +85,11 @@ app.put('/updateCarSpec', async (req, res) => {
     }
 });
 
-app.delete('/deleteCarSpec/:id', async (req, res) => {
+app.delete('/api/cars/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const result = await db.deleteCarSpec(id);
+        res.status(200).end();
     } catch (error){
         res.status(500).end();
     }
