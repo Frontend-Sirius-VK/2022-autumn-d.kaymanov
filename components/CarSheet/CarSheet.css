@@ -13,11 +13,11 @@
     overflow: auto;
 }
 
-.carSheetContainer__headerCar__carNameDiv{
+.headerCar__carNameDiv{
     width: 600px;
 }
 
-.carSheetContainer__headerCar__price{
+.headerCar__price{
     font-size: 30px;
     font-weight: 900;
 }
@@ -32,7 +32,7 @@
     border-radius: 5px;
 }
 
-.carSheetContainer__owner__data {
+.owner__data {
     border: var(--text-spec-color) solid 2px;
     border-radius: 5px 0 0 5px;
     font-size: 20px;
@@ -44,7 +44,7 @@
     justify-content: center;
 }
 
-.carSheetContainer__owner__messeage{
+.owner__messeage{
     border-top: var(--text-spec-color) solid 2px;
     border-bottom: var(--text-spec-color) solid 2px;
     font-size: 20px;
@@ -56,7 +56,7 @@
     justify-content: center;
 }
 
-.carSheetContainer__owner__number {
+.owner__number {
     border: var(--background-color-number) solid 2px;
     border-radius: 0 5px 5px 0;
     font-size: 20px;
@@ -77,18 +77,18 @@
     justify-content: center;
 }
 
-.carSheetContainer__carSpecAndIMG__allspec{
+.carSpecAndIMG__allspec{
     width: 300px;
     font-size: 20px;
     font-weight: 600;
 }
 
-.carSheetContainer__carSpecAndIMG__img{
+.carSpecAndIMG__img{
     width: 450px;
     height: 350px;
 }
 
-.carSheetContainer__carSpecAndIMG__img__carImg {
+.carSpecAndIMG__img__carImg {
     width: 100%;
     object-fit:cover;
 }
@@ -97,13 +97,13 @@
     margin-top: 20px;
 }
 
-.carSheetContainer__sellerComment__header{
+.sellerComment__header{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.carSheetContainer__sellerComment__text{
+.sellerComment__text{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,23 +116,23 @@
     .carSheetContainer__headerCar{
         flex-direction: column;
     }
-    .carSheetContainer__owner__messeage{
+    .owner__messeage{
         display: none;
     }
     .carSheetContainer__carSpecAndIMG{
         flex-direction: column-reverse;
     }
-    .carSheetContainer__headerCar__price{
+    .headerCar__price{
         width: 600px;
     }
 
-    .carSheetContainer__sellerComment__header{
+    .sellerComment__header{
         font-size: 30px;
     }
-    .carSheetContainer__sellerComment__text{
+    .sellerComment__text{
         font-size: 25px;
     }
-    .carSheetContainer__carSpecAndIMG__allspec{
+    .carSpecAndIMG__allspec{
         font-size: 25px;
     }
 

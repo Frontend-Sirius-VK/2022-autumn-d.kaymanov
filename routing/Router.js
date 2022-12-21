@@ -74,10 +74,10 @@ export class Router {
         }
         const ControllerClass = result.controller;
         const controller = new ControllerClass();
-        if (result.controller !== controllerСheck){
-            controller.process(id);
-        } else {
+        if (controllerСheck.includes(result.controller)){
             controller.process();
+        } else {
+            controller.process(id);
         }
     }
 
