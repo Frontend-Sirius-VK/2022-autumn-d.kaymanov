@@ -82,12 +82,16 @@ export class Router {
     }
 
     start() {
+        window.addEventListener('popstate', (event) => {
+            router.invokeController();
+        });
         document.addEventListener('click', this.onDocumentClick);
         this.invokeController();
     }
 
     stop() {
         document.removeEventListener('click', this.onDocumentClick);
+        window.removeEventListener('popstate');
     }
 }
 
