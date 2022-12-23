@@ -18,8 +18,8 @@ async function getCarsSpec() {
 
 async function createProductCar(req){
     try {
-        const {altimg, srcimg, namecar, spec, price, yearcar, mileage} = req.body;
-        const newCar = await pool.query('INSERT INTO carspec (altimg, srcimg, namecar, spec, price, yearcar, mileage) values ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [altimg, srcimg, namecar, spec, price, yearcar, mileage]);
+        const {altimg, srcimg, namecar, spec, price, yearcar, mileage, nameowner, numberowner, descriptioncar} = req.body;
+        const newCar = await pool.query('INSERT INTO carspec (altimg, srcimg, namecar, spec, price, yearcar, mileage, nameowner, numberowner, descriptioncar) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *', [altimg, srcimg, namecar, spec, price, yearcar, mileage, nameowner, numberowner, descriptioncar]);
         return newCar.body;
     } catch (error) {
     console.log(error)
@@ -37,8 +37,8 @@ async function getOneCarSpec(id) {
 
 async function putCarSpec(req) {
     try {
-        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage} = req.body;
-        const result = await pool.query('UPDATE carspec set altimg = $1, srcimg = $2, namecar = $3, spec = $4, price = $5, yearcar = $6, mileage = $7 WHERE id = $8 RETURNING *', [altimg, srcimg, namecar, spec, price, yearcar, mileage, id])
+        const {id, altimg, srcimg, namecar, spec, price, yearcar, mileage, nameowner, numberowner, descriptioncar} = req.body;
+        const result = await pool.query('UPDATE carspec set altimg = $1, srcimg = $2, namecar = $3, spec = $4, price = $5, yearcar = $6, mileage = $7, nameowner = $8, numberowner = $9, descriptioncar = $10 WHERE id = $11 RETURNING *', [altimg, srcimg, namecar, spec, price, yearcar, mileage,  nameowner, numberowner, descriptioncar, id])
         return result.rows
     } catch (error) {
         console.log(error)
